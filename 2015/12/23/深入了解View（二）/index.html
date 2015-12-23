@@ -3,17 +3,57 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | wangsg&#39;s blog</title>
+  <title>深入了解View（二） | wangsg&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangsg's blog">
-<meta property="og:url" content="http://yoursite.com/archives/2015/index.html">
+  <meta name="description" content="我们每天写代码基本都是在和View打交道，任何一个控件或者布局其实都是直接或者间接的继承View类。
+
+View
+TextView
+Button
+EditText
+CheckedTextView
+…但是这玩意怎么绘制到屏幕上呢，其实她们都是经过科学绘制流程后才能显示出来的onMeasure() -&amp;gt; onLayout -&amp;gt; onDraw()
+
+
+
+
+
+深究代码我没有完全看，有兴趣可以自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入了解View（二）">
+<meta property="og:url" content="http://yoursite.com/2015/12/23/深入了解View（二）/index.html">
 <meta property="og:site_name" content="wangsg's blog">
-<meta property="og:description">
+<meta property="og:description" content="我们每天写代码基本都是在和View打交道，任何一个控件或者布局其实都是直接或者间接的继承View类。
+
+View
+TextView
+Button
+EditText
+CheckedTextView
+…但是这玩意怎么绘制到屏幕上呢，其实她们都是经过科学绘制流程后才能显示出来的onMeasure() -&amp;gt; onLayout -&amp;gt; onDraw()
+
+
+
+
+
+深究代码我没有完全看，有兴趣可以自">
+<meta property="og:updated_time" content="2015-12-23T08:30:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangsg's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="深入了解View（二）">
+<meta name="twitter:description" content="我们每天写代码基本都是在和View打交道，任何一个控件或者布局其实都是直接或者间接的继承View类。
+
+View
+TextView
+Button
+EditText
+CheckedTextView
+…但是这玩意怎么绘制到屏幕上呢，其实她们都是经过科学绘制流程后才能显示出来的onMeasure() -&amp;gt; onLayout -&amp;gt; onDraw()
+
+
+
+
+
+深究代码我没有完全看，有兴趣可以自">
   
     <link rel="alternative" href="/atom.xml" title="wangsg&#39;s blog" type="application/atom+xml">
   
@@ -177,208 +217,106 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-深入了解View（二）" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/12/23/深入了解View（二）/" class="article-date">
+  	<time datetime="2015-12-23T07:05:32.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深入了解View（二）
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/23/深入了解View（三）/" class="archive-article-date">
-  	<time datetime="2015-12-23T08:33:21.000Z" itemprop="datePublished">12月 23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/23/深入了解View（三）/">深入了解View（三）</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们每天写代码基本都是在和View打交道，任何一个控件或者布局其实都是直接或者间接的继承View类。</p>
+<ul>
+<li>View<ul>
+<li>TextView<ul>
+<li>Button</li>
+<li>EditText</li>
+<li>CheckedTextView</li>
+<li>…<br>但是这玩意怎么绘制到屏幕上呢，其实她们都是经过科学绘制流程后才能显示出来的<br>onMeasure() -&gt; onLayout -&gt; onDraw()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>深究代码我没有完全看，有兴趣可以自己阅读</p>
+<p>参考：<a href="http://blog.csdn.net/guolin_blog/article/details/16330267" target="_blank" rel="external">Android视图绘制流程完全解析，带你一步步深入了解View(二)</a></p>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/23/深入了解View（二）/" class="archive-article-date">
-  	<time datetime="2015-12-23T07:05:32.000Z" itemprop="datePublished">12月 23</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/23/深入了解View（二）/">深入了解View（二）</a>
-    </h1>
+    <a href="/2015/12/23/深入了解View（三）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          深入了解View（三）
+        
+      </div>
+    </a>
   
+  
+    <a href="/2015/12/23/深入了解View/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入了解View之LayoutInflater（一）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/23/深入了解View/" class="archive-article-date">
-  	<time datetime="2015-12-23T06:25:46.000Z" itemprop="datePublished">12月 23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/23/深入了解View/">深入了解View之LayoutInflater（一）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/22/整理下最近在做的事情/" class="archive-article-date">
-  	<time datetime="2015-12-22T14:44:19.000Z" itemprop="datePublished">12月 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/22/整理下最近在做的事情/">整理下最近在做的事情</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-andoridstudio">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/17/Mac下AS快捷键整理/" class="archive-article-date">
-  	<time datetime="2015-12-17T06:55:54.000Z" itemprop="datePublished">12月 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/17/Mac下AS快捷键整理/">Mac快捷键整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/14/开博第一篇/" class="archive-article-date">
-  	<time datetime="2015-12-14T14:45:02.000Z" itemprop="datePublished">12月 14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/14/开博第一篇/">开博第一篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -404,8 +342,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
