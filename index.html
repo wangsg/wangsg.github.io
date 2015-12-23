@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/技术杂谈/" style="font-size: 10px;">技术杂谈</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-琐碎/" style="font-size: 10px;">Android 琐碎</a> <a href="/tags/技术杂谈/" style="font-size: 10px;">技术杂谈</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -178,6 +178,65 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-技术琐碎" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/技术琐碎/" class="article-date">
+  	<time datetime="2015-12-23T08:59:46.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/23/技术琐碎/">技术琐碎</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此文仅仅纪录开发的琐碎，事无大小，可能大多数都会但是需要注意的地方纪录</p>
+<h3 id="Android__u81EA_u5B9A_u4E49_u5C5E_u6027"><a href="#Android__u81EA_u5B9A_u4E49_u5C5E_u6027" class="headerlink" title="Android 自定义属性"></a>Android 自定义属性</h3><p>  有时候android传统的页面布局不足以满足我们的需求，常常需要自己定义view，通常继承View，然后重写构造方法以及onDraw等函数，再具体实现自己定义的复杂view。我们知道在给控件赋属性时，通常使用的是android系统自带的属性，比如 android:layout_height=”wrap_content”，除此之外，我们亦可以自己定义属性，这样在使用的时候我们就可以使用形如 myapp:myTextSize=”20sp”的方式了，步骤大致如下：<br>  1.在项目文件res/value下面创建一个attr.xml文件，该文件中包含若干个attr集合<br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"MyView"</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"myTextSize"</span> <span class="attribute">format</span>=<span class="value">"dimension"</span>/&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"myColor"</span> <span class="attribute">format</span>=<span class="value">"color"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-琐碎/">Android 琐碎</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/23/技术琐碎/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-深入了解View（三）" class="article article-type-post" itemscope itemprop="blogPost">
   
