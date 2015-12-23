@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>深入了解View之LayoutInflater（一） | wangsg&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于LayoutInflater，一点都不陌生经常使用。两种方式使用：
+
+第一种
+1LayoutInflater layoutInflater = LayoutInflater.from(context);
+
+第二种
+12LayoutInflater layoutInflater = (LayoutInflater) context        .getSystemService(Context">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入了解View之LayoutInflater（一）">
+<meta property="og:url" content="http://yoursite.com/2015/12/23/深入了解View/index.html">
+<meta property="og:site_name" content="wangsg's blog">
+<meta property="og:description" content="关于LayoutInflater，一点都不陌生经常使用。两种方式使用：
+
+第一种
+1LayoutInflater layoutInflater = LayoutInflater.from(context);
+
+第二种
+12LayoutInflater layoutInflater = (LayoutInflater) context        .getSystemService(Context">
+<meta property="og:image" content="http://yoursite.com/imgs/2015-12-23/12-23.png">
+<meta property="og:updated_time" content="2015-12-23T06:51:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入了解View之LayoutInflater（一）">
+<meta name="twitter:description" content="关于LayoutInflater，一点都不陌生经常使用。两种方式使用：
+
+第一种
+1LayoutInflater layoutInflater = LayoutInflater.from(context);
+
+第二种
+12LayoutInflater layoutInflater = (LayoutInflater) context        .getSystemService(Context">
+  
+    <link rel="alternative" href="/atom.xml" title="wangsg&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/imgs/webwxgeticon.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wangsg</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/tags/Android">Android</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wangsg" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/技术杂谈/" style="font-size: 10px;">技术杂谈</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wangsg</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/imgs/webwxgeticon.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wangsg</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/tags/Android">Android</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wangsg" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-深入了解View" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/深入了解View/" class="article-date">
+  	<time datetime="2015-12-23T06:25:46.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深入了解View之LayoutInflater（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于LayoutInflater，一点都不陌生经常使用。<br>两种方式使用：</p>
+<ul>
+<li><p>第一种</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater layoutInflater = LayoutInflater.from(context);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二种</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater layoutInflater = (LayoutInflater) context</span><br><span class="line">        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>之后操作就是调用inflate()方法加在布局了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layoutInflater.inflate(R.layout.activity_main, root);</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数就是要加载的布局id，第二个参数是指给该布局的外部再嵌套一层父布局，如果不需要就直接传null<br>例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setContentView(R.layout.activity_main);</span><br><span class="line">mainLayout = (LinearLayout) findViewById(R.id.main_layout);</span><br><span class="line">LayoutInflater layoutInflater = LayoutInflater.from(<span class="keyword">this</span>);</span><br><span class="line">View buttonLayout = layoutInflater.inflate(R.layout.button_layout, <span class="keyword">null</span>);</span><br><span class="line">mainLayout.addView(buttonLayout);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="u67E5_u770B_u6E90_u7801_u77E5_u5176_u6240_u7136"><a href="#u67E5_u770B_u6E90_u7801_u77E5_u5176_u6240_u7136" class="headerlink" title="查看源码知其所然"></a>查看源码知其所然</h5><a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">inflate</span><span class="params">(XmlPullParser parser, ViewGroup root, <span class="keyword">boolean</span> attachToRoot)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (mConstructorArgs) &#123;</span><br><span class="line">            Trace.traceBegin(Trace.TRACE_TAG_VIEW, <span class="string">"inflate"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">final</span> AttributeSet attrs = Xml.asAttributeSet(parser);</span><br><span class="line">            Context lastContext = (Context)mConstructorArgs[<span class="number">0</span>];</span><br><span class="line">            mConstructorArgs[<span class="number">0</span>] = mContext;</span><br><span class="line">            View result = root;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// Look for the root node.</span></span><br><span class="line">                <span class="keyword">int</span> type;</span><br><span class="line">                <span class="keyword">while</span> ((type = parser.next()) != XmlPullParser.START_TAG &amp;&amp;</span><br><span class="line">                        type != XmlPullParser.END_DOCUMENT) &#123;</span><br><span class="line">                    <span class="comment">// Empty</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (type != XmlPullParser.START_TAG) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> InflateException(parser.getPositionDescription()</span><br><span class="line">                            + <span class="string">": No start tag found!"</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">final</span> String name = parser.getName();</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> (DEBUG) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"**************************"</span>);</span><br><span class="line">                    System.out.println(<span class="string">"Creating root view: "</span></span><br><span class="line">                            + name);</span><br><span class="line">                    System.out.println(<span class="string">"**************************"</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (TAG_MERGE.equals(name)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (root == <span class="keyword">null</span> || !attachToRoot) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> InflateException(<span class="string">"&lt;merge /&gt; can be used only with a valid "</span></span><br><span class="line">                                + <span class="string">"ViewGroup root and attachToRoot=true"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    rInflate(parser, root, attrs, <span class="keyword">false</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// Temp is the root view that was found in the xml</span></span><br><span class="line">                    View temp;</span><br><span class="line">                    <span class="keyword">if</span> (TAG_1995.equals(name)) &#123;</span><br><span class="line">                        temp = <span class="keyword">new</span> BlinkLayout(mContext, attrs);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        temp = createViewFromTag(root, name, attrs);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    ViewGroup.LayoutParams params = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (DEBUG) &#123;</span><br><span class="line">                            System.out.println(<span class="string">"Creating params from root: "</span> +</span><br><span class="line">                                    root);</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="comment">// Create layout params that match root, if supplied</span></span><br><span class="line">                        params = root.generateLayoutParams(attrs);</span><br><span class="line">                        <span class="keyword">if</span> (!attachToRoot) &#123;</span><br><span class="line">                            <span class="comment">// Set the layout params for temp if we are not</span></span><br><span class="line">                            <span class="comment">// attaching. (If we are, we use addView, below)</span></span><br><span class="line">                            temp.setLayoutParams(params);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (DEBUG) &#123;</span><br><span class="line">                        System.out.println(<span class="string">"-----&gt; start inflating children"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// Inflate all children under temp</span></span><br><span class="line">                    rInflate(parser, temp, attrs, <span class="keyword">true</span>);</span><br><span class="line">                    <span class="keyword">if</span> (DEBUG) &#123;</span><br><span class="line">                        System.out.println(<span class="string">"-----&gt; done inflating children"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// We are supposed to attach all the views we found (int temp)</span></span><br><span class="line">                    <span class="comment">// to root. Do that now.</span></span><br><span class="line">                    <span class="keyword">if</span> (root != <span class="keyword">null</span> &amp;&amp; attachToRoot) &#123;</span><br><span class="line">                        root.addView(temp, params);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Decide whether to return the root that was passed in or the</span></span><br><span class="line">                    <span class="comment">// top view found in xml.</span></span><br><span class="line">                    <span class="keyword">if</span> (root == <span class="keyword">null</span> || !attachToRoot) &#123;</span><br><span class="line">                        result = temp;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (XmlPullParserException e) &#123;</span><br><span class="line">                InflateException ex = <span class="keyword">new</span> InflateException(e.getMessage());</span><br><span class="line">                ex.initCause(e);</span><br><span class="line">                <span class="keyword">throw</span> ex;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                InflateException ex = <span class="keyword">new</span> InflateException(</span><br><span class="line">                        parser.getPositionDescription()</span><br><span class="line">                        + <span class="string">": "</span> + e.getMessage());</span><br><span class="line">                ex.initCause(e);</span><br><span class="line">                <span class="keyword">throw</span> ex;</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                <span class="comment">// Don't retain static reference on context.</span></span><br><span class="line">                mConstructorArgs[<span class="number">0</span>] = lastContext;</span><br><span class="line">                mConstructorArgs[<span class="number">1</span>] = <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Trace.traceEnd(Trace.TRACE_TAG_VIEW);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> Inflate a new view hierarchy from the specified XML node. Throws {@link InflateException} if there is an error.<br> 查看doc可以看出不管如何最终会进入inflate()方法。<br> 其实就是使用pull解析布局xml<br> 里边有个这货<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">View temp;</span><br><span class="line">                <span class="keyword">if</span> (TAG_1995.equals(name)) &#123;</span><br><span class="line">                    temp = <span class="keyword">new</span> BlinkLayout(mContext, attrs);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    temp = createViewFromTag(root, name, attrs);</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure></p>
+<p> createViewFromTag()这个方法获取View对象<br>到此LayoutInflater的工作原理和流程结束，当然里边前套的还有其他方法不做一一列举。<br>哈，今天图放在后边…<br><img src="/imgs/2015-12-23/12-23.png" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/22/整理下最近在做的事情/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">整理下最近在做的事情</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 wangsg
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
