@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>2015年终总结 | wangsg&#39;s blog</title>
+  <title>自定义View（一） | wangsg&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="随手送妹子一枚（我也不知道谁，煎蛋找了张）今天公司调休，元旦假日的最后一天上班，无聊了一天，想想这也算是2016的第一个工作日，不能这么下去。罢了，回顾一下过去的一年吧，不是文艺青年，随手写点流水账。">
+  <meta name="description" content="Android中坐标系一.屏幕坐标系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2015年终总结">
-<meta property="og:url" content="http://yoursite.com/2016/01/03/2015年终总结/index.html">
+<meta property="og:title" content="自定义View（一）">
+<meta property="og:url" content="http://yoursite.com/2016/07/01/自定义View（一）/index.html">
 <meta property="og:site_name" content="wangsg's blog">
-<meta property="og:description" content="随手送妹子一枚（我也不知道谁，煎蛋找了张）今天公司调休，元旦假日的最后一天上班，无聊了一天，想想这也算是2016的第一个工作日，不能这么下去。罢了，回顾一下过去的一年吧，不是文艺青年，随手写点流水账。">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw600/66b3de17gw1ezl8ha6ultj20kq0q3mz5.jpg">
-<meta property="og:updated_time" content="2016-01-03T08:40:05.000Z">
+<meta property="og:description" content="Android中坐标系一.屏幕坐标系">
+<meta property="og:image" content="https://camo.githubusercontent.com/a0c38e4f124e4b2b4a90e0767f24ee9e7b76f992/687474703a2f2f7777332e73696e61696d672e636e2f6c617267652f30303558746469326a773166317179686a793768386a333038633064777133322e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/09df2f3f82180fd70ca62b084d906977215458f3/687474703a2f2f7777322e73696e61696d672e636e2f6c617267652f30303558746469326777316631717a7177766b6b626a33303863306477676d392e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/e5f1fba429c2f848e8ab8a56401b1ea9853599d8/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f30303558746469326a77316631723262646c7168626a333038633064777765772e6a7067">
+<meta property="og:image" content="https://camo.githubusercontent.com/95f8d4ccfd184d68c2a7e3e9cc905e02eb4c8569/687474703a2f2f7777332e73696e61696d672e636e2f6c617267652f30303558746469326a773166317332776e736577666a333038633064777439342e6a7067">
+<meta property="og:updated_time" content="2016-07-01T03:42:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2015年终总结">
-<meta name="twitter:description" content="随手送妹子一枚（我也不知道谁，煎蛋找了张）今天公司调休，元旦假日的最后一天上班，无聊了一天，想想这也算是2016的第一个工作日，不能这么下去。罢了，回顾一下过去的一年吧，不是文艺青年，随手写点流水账。">
+<meta name="twitter:title" content="自定义View（一）">
+<meta name="twitter:description" content="Android中坐标系一.屏幕坐标系">
   
     <link rel="alternative" href="/atom.xml" title="wangsg&#39;s blog" type="application/atom+xml">
   
@@ -179,11 +182,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-2015年终总结" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-自定义View（一）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/03/2015年终总结/" class="article-date">
-  	<time datetime="2016-01-03T07:54:00.000Z" itemprop="datePublished">2016-01-03</time>
+      <a href="/2016/07/01/自定义View（一）/" class="article-date">
+  	<time datetime="2016-07-01T03:12:34.000Z" itemprop="datePublished">2016-07-01</time>
 </a>
     </div>
   
@@ -196,7 +199,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2015年终总结
+      自定义View（一）
     </h1>
   
 
@@ -205,7 +208,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android自定义View基础/">Android自定义View基础</a></li></ul>
 	</div>
 
         
@@ -216,13 +219,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>随手送妹子一枚（我也不知道谁，煎蛋找了张）<br><img src="http://ww1.sinaimg.cn/mw600/66b3de17gw1ezl8ha6ultj20kq0q3mz5.jpg" alt=""><br>今天公司调休，元旦假日的最后一天上班，无聊了一天，想想这也算是2016的第一个工作日，不能这么下去。罢了，回顾一下过去的一年吧，不是文艺青年，随手写点流水账。<br><a id="more"></a><br>过去的一年我都干了什么呢？想想。。。去年的这个时候我还在为怎么解决眼前开发问题而苦恼，密谋着过了春节就出来看看，技术还是一只小菜鸟。换了三家公司，搬了一次家，丢了3千RMB，丢了一部荣耀6P，历经千辛万苦和女友走到一起。生活方面还是可以接受，准确的说是女友来北京让我一个人不再在北京单身一人了，除了偶尔的吵架，还算不错的，住宿也是一而再的提升品质。<br>最主要的一年其实还是工作吧，被同事公司的高薪诱惑跳槽，推掉朋友公司offer，入职开始加班，一个人顶起一个项目，各种上线加班，新版本发布，一个月后公司说工资延期一段时间，然后，一段时间过去了，宣布工资还是发不了，还是原来同事（总监）垫付大家一些钱过度，后来员工都扛不住了，找老板已经找不到了，这时候已经过去又一个月了，实在不行了交代大家说公司不行了，然后大家仲裁，陆陆续续又是一个多月，仲裁完毕分了好几个月发工资，估计后续还是跑路。期间谈了一家公司，还是这家公司同事推荐的，感觉可以，但是因为这边总监的原因只能跟着大家一起进入一家刚成立公司，待遇不变，然后就一直呆到现在。<br>好了，流水账就是这些。期间收获还是蛮多的，虽说工资有几个月的没有发，但是这都不是大事，钱没了再挣就是了，关键是我获得了我想要的，我能够独自面对项目解决问题，比起以前有了很大很大很大的成长，重要的事情说三遍！从以前的不自信变得自信，现在我敢大声的说“我可以”！<br>2015年我完成了哪些呢？待遇翻了一翻，技术有了很大提升。<br>有哪些不好的呢？熬夜加班让我感觉身体没以前那么棒了，不能很好的利用每一天，除了技术没有什么其他的爱好让生活丰富多彩一些。<br>2015过完了，总的展望一下2016吧。</p>
-<ul>
-<li>锻炼身体，锻炼身体，锻炼身体，实在不行就去健身，身体才是本钱，重要的来三遍！！！</li>
-<li>技术不要广，深入也是不错的选择</li>
-<li>把我机会尝试着更大公司更稳定公司或者更有意思公司，有些小公司的技术氛围实在是太次了，不是我想要的。</li>
-<li>学习了解Python</li>
-</ul>
+        <h2 id="Android_u4E2D_u5750_u6807_u7CFB"><a href="#Android_u4E2D_u5750_u6807_u7CFB" class="headerlink" title="Android中坐标系"></a>Android中坐标系</h2><h3 id="u4E00-_u5C4F_u5E55_u5750_u6807_u7CFB"><a href="#u4E00-_u5C4F_u5E55_u5750_u6807_u7CFB" class="headerlink" title="一.屏幕坐标系"></a>一.屏幕坐标系</h3><a id="more"></a>
+<p>实际手机屏幕坐标如下：<br><img src="https://camo.githubusercontent.com/a0c38e4f124e4b2b4a90e0767f24ee9e7b76f992/687474703a2f2f7777332e73696e61696d672e636e2f6c617267652f30303558746469326a773166317179686a793768386a333038633064777133322e6a7067" alt=""></p>
+<h3 id="u4E8C-View_u5750_u6807_u7CFB"><a href="#u4E8C-View_u5750_u6807_u7CFB" class="headerlink" title="二.View坐标系"></a>二.View坐标系</h3><p>View的坐标系是相对父控件！！<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getTop();       <span class="comment">//获取子View左上角距父View顶部的距离</span></span><br><span class="line">getLeft();      <span class="comment">//获取子View左上角距父View左侧的距离</span></span><br><span class="line">getBottom();    <span class="comment">//获取子View右下角距父View顶部的距离</span></span><br><span class="line">getRight();     <span class="comment">//获取子View右下角距父View左侧的距离</span></span><br></pre></td></tr></table></figure></p>
+<p>如图：<br><img src="https://camo.githubusercontent.com/09df2f3f82180fd70ca62b084d906977215458f3/687474703a2f2f7777322e73696e61696d672e636e2f6c617267652f30303558746469326777316631717a7177766b6b626a33303863306477676d392e6a7067" alt=""></p>
+<h3 id="u4E09-MotionEvent_u4E2D_get__u548C_getRaw__u7684_u533A_u522B"><a href="#u4E09-MotionEvent_u4E2D_get__u548C_getRaw__u7684_u533A_u522B" class="headerlink" title="三.MotionEvent中 get 和 getRaw 的区别"></a>三.MotionEvent中 get 和 getRaw 的区别</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">event.getX();       <span class="comment">//触摸点相对于其所在组件坐标系的坐标</span></span><br><span class="line">event.getY();</span><br><span class="line">event.getRawX();    <span class="comment">//触摸点相对于屏幕默认坐标系的坐标</span></span><br><span class="line">event.getRawY();</span><br></pre></td></tr></table></figure>
+<p>如图：<br><img src="https://camo.githubusercontent.com/e5f1fba429c2f848e8ab8a56401b1ea9853599d8/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f30303558746469326a77316631723262646c7168626a333038633064777765772e6a7067" alt=""></p>
+<h2 id="Android_u89D2_u5EA6_u4E0E_u5F27_u5EA6"><a href="#Android_u89D2_u5EA6_u4E0E_u5F27_u5EA6" class="headerlink" title="Android角度与弧度"></a>Android角度与弧度</h2><p>先贴出常用数学公式<br>周长：C = 2πr;<br>弧度 = 角度xπ/180<br>角度 = 弧度x180/<br>在屏幕中角度坐标如图：<br><img src="https://camo.githubusercontent.com/95f8d4ccfd184d68c2a7e3e9cc905e02eb4c8569/687474703a2f2f7777332e73696e61696d672e636e2f6c617267652f30303558746469326a773166317332776e736577666a333038633064777439342e6a7067" alt=""></p>
 
       
     </div>
@@ -232,18 +235,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/15/拾起以前学习的好习惯/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          拾起以前学习的好习惯
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/24/Android源码分析之Builder模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android设计模式之Builder模式</div>
+    <a href="/2016/06/29/Android动画系列（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android动画系列（三）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
