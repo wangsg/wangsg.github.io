@@ -1,12 +1,973 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>wangsg's blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">wangsg's blog</h1><a id="logo" href="/.">wangsg's blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2016/07/01/自定义View之Path基础/">自定义View之Path基础</a></h2><div class="post-meta">2016-07-01</div><a data-thread-key="2016/07/01/自定义View之Path基础/" href="/2016/07/01/自定义View之Path基础/#comments" class="ds-thread-count"></a><p class="readmore"><a href="/2016/07/01/自定义View之Path基础/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/07/01/自定义View之基础/">自定义View之基础</a></h2><div class="post-meta">2016-07-01</div><a data-thread-key="2016/07/01/自定义View之基础/" href="/2016/07/01/自定义View之基础/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="Android_u4E2D_u5750_u6807_u7CFB"><a href="#Android_u4E2D_u5750_u6807_u7CFB" class="headerlink" title="Android中坐标系"></a>Android中坐标系</h2><h3 id="u4E00-_u5C4F_u5E55_u5750_u6807_u7CFB"><a href="#u4E00-_u5C4F_u5E55_u5750_u6807_u7CFB" class="headerlink" title="一.屏幕坐标系"></a>一.屏幕坐标系</h3></div><p class="readmore"><a href="/2016/07/01/自定义View之基础/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/06/29/Android动画系列（三）/">Android动画系列（三）</a></h2><div class="post-meta">2016-06-29</div><a data-thread-key="2016/06/29/Android动画系列（三）/" href="/2016/06/29/Android动画系列（三）/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="Property_Animation__u7684_u5DE5_u4F5C_u65B9_u5F0F"><a href="#Property_Animation__u7684_u5DE5_u4F5C_u65B9_u5F0F" class="headerlink" title="Property Animation 的工作方式"></a>Property Animation 的工作方式</h2><p>Property Animation 动画有两个步聚：</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>wangsg&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="wangsg's blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="wangsg's blog">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wangsg's blog">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="wangsg&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/imgs/webwxgeticon.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wangsg</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/tags/Android">Android</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wangsg" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-琐碎/" style="font-size: 10px;">Android 琐碎</a> <a href="/tags/Android动画深入分析/" style="font-size: 15px;">Android动画深入分析</a> <a href="/tags/Android自定义View基础/" style="font-size: 10px;">Android自定义View基础</a> <a href="/tags/Android设计模式/" style="font-size: 10px;">Android设计模式</a> <a href="/tags/技术杂谈/" style="font-size: 10px;">技术杂谈</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wangsg</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/imgs/webwxgeticon.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wangsg</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/tags/Android">Android</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wangsg" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-自定义View之Path基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/01/自定义View之Path基础/" class="article-date">
+  	<time datetime="2016-07-01T06:23:19.000Z" itemprop="datePublished">2016-07-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/01/自定义View之Path基础/">自定义View之Path基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-自定义View之基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/01/自定义View之基础/" class="article-date">
+  	<time datetime="2016-07-01T03:12:34.000Z" itemprop="datePublished">2016-07-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/01/自定义View之基础/">自定义View之基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Android_u4E2D_u5750_u6807_u7CFB"><a href="#Android_u4E2D_u5750_u6807_u7CFB" class="headerlink" title="Android中坐标系"></a>Android中坐标系</h2><h3 id="u4E00-_u5C4F_u5E55_u5750_u6807_u7CFB"><a href="#u4E00-_u5C4F_u5E55_u5750_u6807_u7CFB" class="headerlink" title="一.屏幕坐标系"></a>一.屏幕坐标系</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android自定义View基础/">Android自定义View基础</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/01/自定义View之基础/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android动画系列（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/29/Android动画系列（三）/" class="article-date">
+  	<time datetime="2016-06-29T14:54:25.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/Android动画系列（三）/">Android动画系列（三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Property_Animation__u7684_u5DE5_u4F5C_u65B9_u5F0F"><a href="#Property_Animation__u7684_u5DE5_u4F5C_u65B9_u5F0F" class="headerlink" title="Property Animation 的工作方式"></a>Property Animation 的工作方式</h2><p>Property Animation 动画有两个步聚：</p>
 <ol>
 <li>计算属性值</li>
-<li>为目标对象的属性设置属性值，即应用和刷新动画<h3 id="u8BA1_u7B97_u5C5E_u6027_u503C"><a href="#u8BA1_u7B97_u5C5E_u6027_u503C" class="headerlink" title="计算属性值"></a>计算属性值</h3>过程一：计算已完成动画分数 elapsed fraction 为了执行一个动画，你需要创建一个 ValueAnimator，并且指定目标对象属性的开始、结束值和持续时间。在调用 start 后的整个动画过程中， ValueAnimator 会根据已经完成的动画时间计算得到一个 0 到 1 之间的分数，代表该动画的已完成动画百分比。0 表示 0%，1 表示 100%。<br>此文章截取转摘于<a href="http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80">公共技术点之 Android 动画基础</a></div><p class="readmore"><a href="/2016/06/29/Android动画系列（三）/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/06/29/Android动画系列（二）/">Android动画系列（二）</a></h2><div class="post-meta">2016-06-29</div><a data-thread-key="2016/06/29/Android动画系列（二）/" href="/2016/06/29/Android动画系列（二）/#comments" class="ds-thread-count"></a><div class="post-content"><p>上节主要说了下Tween动画和Frame动画的使用API，那么这节针对几个例子单独分析，包括广告滚动，登录抖动，3D旋转，美团loading（帧动画），以及View动画的特殊使用场景LayoutAnimation和Activity切换动画。<br></div><p class="readmore"><a href="/2016/06/29/Android动画系列（二）/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/06/29/Android动画系列（一）/">Android动画系列（一）</a></h2><div class="post-meta">2016-06-29</div><a data-thread-key="2016/06/29/Android动画系列（一）/" href="/2016/06/29/Android动画系列（一）/#comments" class="ds-thread-count"></a><div class="post-content"><p>Android中动画可以分为三种：View动画（Tween动画），帧动画（Frame动画）和属性动画。前两种可以归结为传统动画，Tween 动画通过对对象不断图像变化（平移、缩放、旋转、透明度）产生动画效果。在Android3.0后支持属性动画，通过动态改变对象的属性达到动画效果，低版本可以使用兼容库来实现属性动画，本篇就围绕传统动画纪录。<br>本文说不上是深入分析，充其量也就是View动画使用指南API。自己在开发过程也是经常使用，但是缺少一个完善的总结，so，借用别人总结好的懒一阵子。<br>参考文章<a href="http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80">公共技术点之 Android 动画基础</a><br></div><p class="readmore"><a href="/2016/06/29/Android动画系列（一）/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/06/29/&lt;转&gt;程序员，你迷茫么？你忧伤么？/">&lt;转&gt;程序员，你迷茫么？你忧伤么？</a></h2><div class="post-meta">2016-06-29</div><a data-thread-key="2016/06/29/&lt;转&gt;程序员，你迷茫么？你忧伤么？/" href="/2016/06/29/&lt;转&gt;程序员，你迷茫么？你忧伤么？/#comments" class="ds-thread-count"></a><div class="post-content"><p>你如果是早上6点爬起床，刷牙洗脸，随便吃点早点，接着跑去挤地铁公交，尽量小心的不被挤成饼。挤地铁公交，使劲的小心不被挤成饼。中午一个小时吃饭，半个小时睡午觉。晚上无偿加班到9点10点，周六还必须常薪上班。如果你还梦想着进入Google，Facebook，还想着房、车、美女啥的，那就别放假，多写代码多学习，你哪来的看时间去迷茫去忧伤啊！<br></div><p class="readmore"><a href="/2016/06/29/&lt;转&gt;程序员，你迷茫么？你忧伤么？/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/03/17/关于Android中MVP/">关于Android中MVP</a></h2><div class="post-meta">2016-03-17</div><a data-thread-key="2016/03/17/关于Android中MVP/" href="/2016/03/17/关于Android中MVP/#comments" class="ds-thread-count"></a><p class="readmore"><a href="/2016/03/17/关于Android中MVP/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/03/15/拾起以前学习的好习惯/">拾起以前学习的好习惯</a></h2><div class="post-meta">2016-03-15</div><a data-thread-key="2016/03/15/拾起以前学习的好习惯/" href="/2016/03/15/拾起以前学习的好习惯/#comments" class="ds-thread-count"></a><div class="post-content"><p>农历新年来写的第一篇，之前生了点小病休息了一段时间，目前重回工作岗位，看到春节后的招聘形势不容乐观，暂时停了自己非分之想，捡起以前自己主动学习的好习惯。继续奋斗，因为我一无所有！</p></div><p class="readmore"><a href="/2016/03/15/拾起以前学习的好习惯/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/01/03/2015年终总结/">2015年终总结</a></h2><div class="post-meta">2016-01-03</div><a data-thread-key="2016/01/03/2015年终总结/" href="/2016/01/03/2015年终总结/#comments" class="ds-thread-count"></a><div class="post-content"><p>随手送妹子一枚（我也不知道谁，煎蛋找了张）<br><img src="http://ww1.sinaimg.cn/mw600/66b3de17gw1ezl8ha6ultj20kq0q3mz5.jpg" alt=""><br>今天公司调休，元旦假日的最后一天上班，无聊了一天，想想这也算是2016的第一个工作日，不能这么下去。罢了，回顾一下过去的一年吧，不是文艺青年，随手写点流水账。<br></div><p class="readmore"><a href="/2016/01/03/2015年终总结/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/24/Android源码分析之Builder模式/">Android设计模式之Builder模式</a></h2><div class="post-meta">2015-12-24</div><a data-thread-key="2015/12/24/Android源码分析之Builder模式/" href="/2015/12/24/Android源码分析之Builder模式/#comments" class="ds-thread-count"></a><div class="post-content"><blockquote>
+<li>为目标对象的属性设置属性值，即应用和刷新动画<h3 id="u8BA1_u7B97_u5C5E_u6027_u503C"><a href="#u8BA1_u7B97_u5C5E_u6027_u503C" class="headerlink" title="计算属性值"></a>计算属性值</h3>过程一：计算已完成动画分数 elapsed fraction 为了执行一个动画，你需要创建一个 ValueAnimator，并且指定目标对象属性的开始、结束值和持续时间。在调用 start 后的整个动画过程中， ValueAnimator 会根据已经完成的动画时间计算得到一个 0 到 1 之间的分数，代表该动画的已完成动画百分比。0 表示 0%，1 表示 100%。<br>此文章截取转摘于<a href="http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80">公共技术点之 Android 动画基础</a>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android动画深入分析/">Android动画深入分析</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/29/Android动画系列（三）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android动画系列（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/29/Android动画系列（二）/" class="article-date">
+  	<time datetime="2016-06-29T14:52:41.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/Android动画系列（二）/">Android动画系列（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上节主要说了下Tween动画和Frame动画的使用API，那么这节针对几个例子单独分析，包括广告滚动，登录抖动，3D旋转，美团loading（帧动画），以及View动画的特殊使用场景LayoutAnimation和Activity切换动画。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android动画深入分析/">Android动画深入分析</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/29/Android动画系列（二）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android动画系列（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/29/Android动画系列（一）/" class="article-date">
+  	<time datetime="2016-06-29T14:52:35.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/Android动画系列（一）/">Android动画系列（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android中动画可以分为三种：View动画（Tween动画），帧动画（Frame动画）和属性动画。前两种可以归结为传统动画，Tween 动画通过对对象不断图像变化（平移、缩放、旋转、透明度）产生动画效果。在Android3.0后支持属性动画，通过动态改变对象的属性达到动画效果，低版本可以使用兼容库来实现属性动画，本篇就围绕传统动画纪录。<br>本文说不上是深入分析，充其量也就是View动画使用指南API。自己在开发过程也是经常使用，但是缺少一个完善的总结，so，借用别人总结好的懒一阵子。<br>参考文章<a href="http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Android%20%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80">公共技术点之 Android 动画基础</a><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android动画深入分析/">Android动画深入分析</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/29/Android动画系列（一）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-&lt;转&gt;程序员，你迷茫么？你忧伤么？" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/29/<转>程序员，你迷茫么？你忧伤么？/" class="article-date">
+  	<time datetime="2016-06-29T14:37:07.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/<转>程序员，你迷茫么？你忧伤么？/">&lt;转&gt;程序员，你迷茫么？你忧伤么？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>你如果是早上6点爬起床，刷牙洗脸，随便吃点早点，接着跑去挤地铁公交，尽量小心的不被挤成饼。挤地铁公交，使劲的小心不被挤成饼。中午一个小时吃饭，半个小时睡午觉。晚上无偿加班到9点10点，周六还必须常薪上班。如果你还梦想着进入Google，Facebook，还想着房、车、美女啥的，那就别放假，多写代码多学习，你哪来的看时间去迷茫去忧伤啊！<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/29/<转>程序员，你迷茫么？你忧伤么？/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-关于Android中MVP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/关于Android中MVP/" class="article-date">
+  	<time datetime="2016-03-17T01:48:11.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/关于Android中MVP/">关于Android中MVP</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-拾起以前学习的好习惯" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/15/拾起以前学习的好习惯/" class="article-date">
+  	<time datetime="2016-03-15T14:21:09.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/拾起以前学习的好习惯/">拾起以前学习的好习惯</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>农历新年来写的第一篇，之前生了点小病休息了一段时间，目前重回工作岗位，看到春节后的招聘形势不容乐观，暂时停了自己非分之想，捡起以前自己主动学习的好习惯。继续奋斗，因为我一无所有！</p>
+<p>最近看了不少别人的技术，架构，思想。觉得纸上谈来终是浅，很多东西还是需要自己亲自的去实践了才知道，更能够深入理解，自己也是知道开发过程到底哪些东西比较重要，觉得是时候把自己会的东西给串起来，把技术串起来，看到github很多大神都开源了自己的代码，我终于也按耐不住自己蠢蠢欲动的内心，我也要开发一个自己玩的应用，那么今天做为一个起点。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-2015年终总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/03/2015年终总结/" class="article-date">
+  	<time datetime="2016-01-03T07:54:00.000Z" itemprop="datePublished">2016-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/03/2015年终总结/">2015年终总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随手送妹子一枚（我也不知道谁，煎蛋找了张）<br><img src="http://ww1.sinaimg.cn/mw600/66b3de17gw1ezl8ha6ultj20kq0q3mz5.jpg" alt=""><br>今天公司调休，元旦假日的最后一天上班，无聊了一天，想想这也算是2016的第一个工作日，不能这么下去。罢了，回顾一下过去的一年吧，不是文艺青年，随手写点流水账。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/03/2015年终总结/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android源码分析之Builder模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/24/Android源码分析之Builder模式/" class="article-date">
+  	<time datetime="2015-12-24T06:31:50.000Z" itemprop="datePublished">2015-12-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/24/Android源码分析之Builder模式/">Android设计模式之Builder模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
 <p>在设计模式中对Builder模式的定义是用于构建复杂对象的一种模式，所构建的对象往往需要多步初始化或赋值才能完成。那么，在实际的开发过程中，我们哪些地方适合用到Builder模式呢？其中使用Builder模式来替代多参数构造函数是一个比较好的实践法则。</p>
 <p>Separate the construction of a complex object from its representation so that the same construction process can create different representions.<br>将一个复杂对象的构建与它的表示分离,使得同样的构建过程可以创建不同的表示。</p>
 </blockquote>
-<p>在Android中建造模式十分常见，以及一些优秀的框架都有使用这种模式。例如<br><strong>AlertDialog使用</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//显示基本的AlertDialog  </span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showDialog</span><span class="params">(Context context)</span> </span>&#123;  </span><br><span class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(context);  </span><br><span class="line">        builder.setIcon(R.drawable.icon);  </span><br><span class="line">        builder.setTitle(<span class="string">"Title"</span>);  </span><br><span class="line">        builder.setMessage(<span class="string">"Message"</span>);  </span><br><span class="line">        builder.setPositiveButton(<span class="string">"Button1"</span>,  </span><br><span class="line">                <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;  </span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> whichButton)</span> </span>&#123;  </span><br><span class="line">                        setTitle(<span class="string">"点击了对话框上的Button1"</span>);  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;);  </span><br><span class="line">        builder.setNeutralButton(<span class="string">"Button2"</span>,  </span><br><span class="line">                <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;  </span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> whichButton)</span> </span>&#123;  </span><br><span class="line">                        setTitle(<span class="string">"点击了对话框上的Button2"</span>);  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;);  </span><br><span class="line">        builder.create().show();  <span class="comment">// 构建AlertDialog， 并且显示</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p></div><p class="readmore"><a href="/2015/12/24/Android源码分析之Builder模式/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/23/技术琐碎/">技术琐碎</a></h2><div class="post-meta">2015-12-23</div><a data-thread-key="2015/12/23/技术琐碎/" href="/2015/12/23/技术琐碎/#comments" class="ds-thread-count"></a><div class="post-content"><p>此文仅仅纪录开发的琐碎，事无大小，可能大多数都会但是需要注意的地方纪录</p>
-<h3 id="Android__u81EA_u5B9A_u4E49_u5C5E_u6027"><a href="#Android__u81EA_u5B9A_u4E49_u5C5E_u6027" class="headerlink" title="Android 自定义属性"></a>Android 自定义属性</h3><p>  有时候android传统的页面布局不足以满足我们的需求，常常需要自己定义view，通常继承View，然后重写构造方法以及onDraw等函数，再具体实现自己定义的复杂view。我们知道在给控件赋属性时，通常使用的是android系统自带的属性，比如 android:layout_height=”wrap_content”，除此之外，我们亦可以自己定义属性，这样在使用的时候我们就可以使用形如 myapp:myTextSize=”20sp”的方式了，步骤大致如下：<br>  1.在项目文件res/value下面创建一个attr.xml文件，该文件中包含若干个attr集合<br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"MyView"</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"myTextSize"</span> <span class="attribute">format</span>=<span class="value">"dimension"</span>/&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"myColor"</span> <span class="attribute">format</span>=<span class="value">"color"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure></p></div><p class="readmore"><a href="/2015/12/23/技术琐碎/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/23/深入了解View（三）/">深入了解View（三）</a></h2><div class="post-meta">2015-12-23</div><a data-thread-key="2015/12/23/深入了解View（三）/" href="/2015/12/23/深入了解View（三）/#comments" class="ds-thread-count"></a><div class="post-content"><h3 id="u5173_u4E8E_u81EA_u5B9A_u4E49View_u7684_u5B9E_u73B0"><a href="#u5173_u4E8E_u81EA_u5B9A_u4E49View_u7684_u5B9E_u73B0" class="headerlink" title="关于自定义View的实现"></a>关于自定义View的实现</h3><p>自定义View的实现方式大概可以分为三种，自绘控件、组合控件、以及继承控件</p></div><p class="readmore"><a href="/2015/12/23/深入了解View（三）/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/23/深入了解View（二）/">深入了解View（二）</a></h2><div class="post-meta">2015-12-23</div><a data-thread-key="2015/12/23/深入了解View（二）/" href="/2015/12/23/深入了解View（二）/#comments" class="ds-thread-count"></a><div class="post-content"><p>我们每天写代码基本都是在和View打交道，任何一个控件或者布局其实都是直接或者间接的继承View类。</p></div><p class="readmore"><a href="/2015/12/23/深入了解View（二）/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/23/深入了解View/">深入了解View之LayoutInflater（一）</a></h2><div class="post-meta">2015-12-23</div><a data-thread-key="2015/12/23/深入了解View/" href="/2015/12/23/深入了解View/#comments" class="ds-thread-count"></a><div class="post-content"><p>关于LayoutInflater，一点都不陌生经常使用。<br>两种方式使用：</p>
+<p>在Android中建造模式十分常见，以及一些优秀的框架都有使用这种模式。例如<br><strong>AlertDialog使用</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//显示基本的AlertDialog  </span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showDialog</span><span class="params">(Context context)</span> </span>&#123;  </span><br><span class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(context);  </span><br><span class="line">        builder.setIcon(R.drawable.icon);  </span><br><span class="line">        builder.setTitle(<span class="string">"Title"</span>);  </span><br><span class="line">        builder.setMessage(<span class="string">"Message"</span>);  </span><br><span class="line">        builder.setPositiveButton(<span class="string">"Button1"</span>,  </span><br><span class="line">                <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;  </span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> whichButton)</span> </span>&#123;  </span><br><span class="line">                        setTitle(<span class="string">"点击了对话框上的Button1"</span>);  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;);  </span><br><span class="line">        builder.setNeutralButton(<span class="string">"Button2"</span>,  </span><br><span class="line">                <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;  </span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> whichButton)</span> </span>&#123;  </span><br><span class="line">                        setTitle(<span class="string">"点击了对话框上的Button2"</span>);  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;);  </span><br><span class="line">        builder.create().show();  <span class="comment">// 构建AlertDialog， 并且显示</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android设计模式/">Android设计模式</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/24/Android源码分析之Builder模式/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-技术琐碎" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/技术琐碎/" class="article-date">
+  	<time datetime="2015-12-23T08:59:46.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/23/技术琐碎/">技术琐碎</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此文仅仅纪录开发的琐碎，事无大小，可能大多数都会但是需要注意的地方纪录</p>
+<h3 id="Android__u81EA_u5B9A_u4E49_u5C5E_u6027"><a href="#Android__u81EA_u5B9A_u4E49_u5C5E_u6027" class="headerlink" title="Android 自定义属性"></a>Android 自定义属性</h3><p>  有时候android传统的页面布局不足以满足我们的需求，常常需要自己定义view，通常继承View，然后重写构造方法以及onDraw等函数，再具体实现自己定义的复杂view。我们知道在给控件赋属性时，通常使用的是android系统自带的属性，比如 android:layout_height=”wrap_content”，除此之外，我们亦可以自己定义属性，这样在使用的时候我们就可以使用形如 myapp:myTextSize=”20sp”的方式了，步骤大致如下：<br>  1.在项目文件res/value下面创建一个attr.xml文件，该文件中包含若干个attr集合<br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"MyView"</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"myTextSize"</span> <span class="attribute">format</span>=<span class="value">"dimension"</span>/&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"myColor"</span> <span class="attribute">format</span>=<span class="value">"color"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-琐碎/">Android 琐碎</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/23/技术琐碎/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-深入了解View（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/深入了解View（三）/" class="article-date">
+  	<time datetime="2015-12-23T08:33:21.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/23/深入了解View（三）/">深入了解View（三）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u5173_u4E8E_u81EA_u5B9A_u4E49View_u7684_u5B9E_u73B0"><a href="#u5173_u4E8E_u81EA_u5B9A_u4E49View_u7684_u5B9E_u73B0" class="headerlink" title="关于自定义View的实现"></a>关于自定义View的实现</h3><p>自定义View的实现方式大概可以分为三种，自绘控件、组合控件、以及继承控件</p>
+<h4 id="u81EA_u7ED8_u63A7_u4EF6"><a href="#u81EA_u7ED8_u63A7_u4EF6" class="headerlink" title="自绘控件"></a>自绘控件</h4><p>onDraw()方法绘制订制逻辑<br>invalidate()  重新绘制视图</p>
+<h4 id="u7EC4_u5408_u63A7_u4EF6"><a href="#u7EC4_u5408_u63A7_u4EF6" class="headerlink" title="组合控件"></a>组合控件</h4><blockquote>
+<p>组合控件的意思就是，我们并不需要自己去绘制视图上显示的内容，而只是用系统原生的控件就好了，但我们可以将几个系统原生的控件组合到一起，这样创建出的控件就被称为组合控件。</p>
+</blockquote>
+<p>举个例子来说，标题栏就是个很常见的组合控件</p>
+<h4 id="u7EE7_u627F_u63A7_u4EF6"><a href="#u7EE7_u627F_u63A7_u4EF6" class="headerlink" title="继承控件"></a>继承控件</h4><blockquote>
+<p>继承控件的意思就是，我们并不需要自己重头去实现一个控件，只需要去继承一个现有的控件，然后在这个控件上增加一些新的功能，就可以形成一个自定义的控件了。这种自定义控件的特点就是不仅能够按照我们的需求加入相应的功能，还可以保留原生控件的所有功能</p>
+</blockquote>
+<p>因为不善于总结和文字说明只能借鉴@郭林大神的文章，来学习一下。</p>
+<p>参考:<a href="http://blog.csdn.net/guolin_blog/article/details/17357967" target="_blank" rel="external">Android自定义View的实现方法，带你一步步深入了解View(四)</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-深入了解View（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/深入了解View（二）/" class="article-date">
+  	<time datetime="2015-12-23T07:05:32.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/23/深入了解View（二）/">深入了解View（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们每天写代码基本都是在和View打交道，任何一个控件或者布局其实都是直接或者间接的继承View类。</p>
+<ul>
+<li>View<ul>
+<li>TextView<ul>
+<li>Button</li>
+<li>EditText</li>
+<li>CheckedTextView</li>
+<li>…<br>但是这玩意怎么绘制到屏幕上呢，其实她们都是经过科学绘制流程后才能显示出来的<br>onMeasure() -&gt; onLayout -&gt; onDraw()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>深究代码我没有完全看，有兴趣可以自己阅读</p>
+<p>参考：<a href="http://blog.csdn.net/guolin_blog/article/details/16330267" target="_blank" rel="external">Android视图绘制流程完全解析，带你一步步深入了解View(二)</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-深入了解View" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/深入了解View/" class="article-date">
+  	<time datetime="2015-12-23T06:25:46.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/23/深入了解View/">深入了解View之LayoutInflater（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于LayoutInflater，一点都不陌生经常使用。<br>两种方式使用：</p>
 <ul>
 <li><p>第一种</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater layoutInflater = LayoutInflater.from(context);</span><br></pre></td></tr></table></figure>
@@ -18,14 +979,285 @@
 <p>之后操作就是调用inflate()方法加在布局了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layoutInflater.inflate(R.layout.activity_main, root);</span><br></pre></td></tr></table></figure></p>
 <p>第一个参数就是要加载的布局id，第二个参数是指给该布局的外部再嵌套一层父布局，如果不需要就直接传null<br>例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setContentView(R.layout.activity_main);</span><br><span class="line">mainLayout = (LinearLayout) findViewById(R.id.main_layout);</span><br><span class="line">LayoutInflater layoutInflater = LayoutInflater.from(<span class="keyword">this</span>);</span><br><span class="line">View buttonLayout = layoutInflater.inflate(R.layout.button_layout, <span class="keyword">null</span>);</span><br><span class="line">mainLayout.addView(buttonLayout);</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h5 id="u67E5_u770B_u6E90_u7801_u77E5_u5176_u6240_u7136"><a href="#u67E5_u770B_u6E90_u7801_u77E5_u5176_u6240_u7136" class="headerlink" title="查看源码知其所然"></a>查看源码知其所然</h5></div><p class="readmore"><a href="/2015/12/23/深入了解View/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/22/整理下最近在做的事情/">整理下最近在做的事情</a></h2><div class="post-meta">2015-12-22</div><a data-thread-key="2015/12/22/整理下最近在做的事情/" href="/2015/12/22/整理下最近在做的事情/#comments" class="ds-thread-count"></a><div class="post-content"><p>话不多说，先来张图占地方哈<br><img src="/imgs/2015-12-22/fengjing.png" alt=""><br>最近项目一直不忙，so，看了些东西整理了一些知识，巩固了一些技术点。如下。。。。。。</p></div><p class="readmore"><a href="/2015/12/22/整理下最近在做的事情/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/17/Mac下AS快捷键整理/">Mac快捷键整理</a></h2><div class="post-meta">2015-12-17</div><a data-thread-key="2015/12/17/Mac下AS快捷键整理/" href="/2015/12/17/Mac下AS快捷键整理/#comments" class="ds-thread-count"></a><div class="post-content"><p>从Android Stuido 第一个版本出来就已经使用也就是14年时候，当时觉得还不是特别好用，时常更新。一直觉得仅仅只是IDE而已包括以前使用Intellij idea，觉得好帅，可是还是因为从eclipse转变过来好多快捷键一时间难以习惯so中途还是放弃。目前Stuido开发版已经出到2.0自己也是在之前几个月切换到Stuido开发环境中，自己也要紧跟技术时代潮流，谷歌大法早已经告知大家ADT不在维护升级。。扯远了，把最近整理的AS快捷键记录一下。</p>
-<p>来张图，给那个该退役的家伙致个敬。<br><img src="/imgs/2015-12-16/kebi.png" alt=""><br></div><p class="readmore"><a href="/2015/12/17/Mac下AS快捷键整理/">阅读更多</a></p></div><div class="post"><h2 class="post-title"><a href="/2015/12/14/开博第一篇/">开博第一篇</a></h2><div class="post-meta">2015-12-14</div><a data-thread-key="2015/12/14/开博第一篇/" href="/2015/12/14/开博第一篇/#comments" class="ds-thread-count"></a><div class="post-content"><p><img src="/imgs/2015-12-14/jiansheng.png" alt=""></p></div><p class="readmore"><a href="/2015/12/14/开博第一篇/">阅读更多</a></p></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/Android自定义View基础/" style="font-size: 15px;">Android自定义View基础</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/技术杂谈/" style="font-size: 15px;">技术杂谈</a> <a href="/tags/Android-琐碎/" style="font-size: 15px;">Android 琐碎</a> <a href="/tags/Android设计模式/" style="font-size: 15px;">Android设计模式</a> <a href="/tags/Android动画深入分析/" style="font-size: 15px;">Android动画深入分析</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/01/自定义View之Path基础/">自定义View之Path基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/01/自定义View之基础/">自定义View之基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/29/Android动画系列（三）/">Android动画系列（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/29/Android动画系列（二）/">Android动画系列（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/29/Android动画系列（一）/">Android动画系列（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/29/<转>程序员，你迷茫么？你忧伤么？/"><转>程序员，你迷茫么？你忧伤么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/关于Android中MVP/">关于Android中MVP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/拾起以前学习的好习惯/">拾起以前学习的好习惯</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/03/2015年终总结/">2015年终总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/24/Android源码分析之Builder模式/">Android设计模式之Builder模式</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">wangsg's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'wangsg.duoshuo.com## Your duoshuo_shortname, e.g. username'};
-(function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<h5 id="u67E5_u770B_u6E90_u7801_u77E5_u5176_u6240_u7136"><a href="#u67E5_u770B_u6E90_u7801_u77E5_u5176_u6240_u7136" class="headerlink" title="查看源码知其所然"></a>查看源码知其所然</h5>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/23/深入了解View/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-整理下最近在做的事情" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/整理下最近在做的事情/" class="article-date">
+  	<time datetime="2015-12-22T14:44:19.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/整理下最近在做的事情/">整理下最近在做的事情</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>话不多说，先来张图占地方哈<br><img src="/imgs/2015-12-22/fengjing.png" alt=""><br>最近项目一直不忙，so，看了些东西整理了一些知识，巩固了一些技术点。如下。。。。。。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术杂谈/">技术杂谈</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/22/整理下最近在做的事情/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="andoridstudio-Mac下AS快捷键整理" class="article article-type-andoridstudio" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/17/Mac下AS快捷键整理/" class="article-date">
+  	<time datetime="2015-12-17T06:55:54.000Z" itemprop="datePublished">2015-12-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/17/Mac下AS快捷键整理/">Mac快捷键整理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从Android Stuido 第一个版本出来就已经使用也就是14年时候，当时觉得还不是特别好用，时常更新。一直觉得仅仅只是IDE而已包括以前使用Intellij idea，觉得好帅，可是还是因为从eclipse转变过来好多快捷键一时间难以习惯so中途还是放弃。目前Stuido开发版已经出到2.0自己也是在之前几个月切换到Stuido开发环境中，自己也要紧跟技术时代潮流，谷歌大法早已经告知大家ADT不在维护升级。。扯远了，把最近整理的AS快捷键记录一下。</p>
+<p>来张图，给那个该退役的家伙致个敬。<br><img src="/imgs/2015-12-16/kebi.png" alt=""><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/17/Mac下AS快捷键整理/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-开博第一篇" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/14/开博第一篇/" class="article-date">
+  	<time datetime="2015-12-14T14:45:02.000Z" itemprop="datePublished">2015-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/14/开博第一篇/">开博第一篇</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/imgs/2015-12-14/jiansheng.png" alt=""></p>
+<hr>
+<p>今年告别了dota，祭张图…</p>
+<p>删除掉自带的Hello World</p>
+<p>我这个懒人终于也在2015年末的时候借助外力搭建了自己的小博客，这个想法是从去年也就是2014年就有的，此前也有在博客园和CSDN写过一小段博客，汗颜啊…因为种种原因（其实还是自己比较懒）没有坚持下去。<br>从最早接触coding，就是混迹于各种博客，围观各种大神的神作，期间自己也是成长了不少。从最开始的小小实习生到后来自己的独当一面，抛开其他原因，网络上大神的技术博客可以说对我的影响还是相当大的！</p>
+<p>so！最终心底的这个想法压抑不住了，遂在某天凌晨两点搭建了自己的小博客。</p>
+<p>不是很会使用markdown，以后慢慢熟练吧。</p>
+<p>开这个博客的目的呢：</p>
+<ul>
+<li>坚持做件事情</li>
+<li>记录下来自己成长的印记</li>
+<li>沉淀技术且日积月累的记录下来</li>
+<li>当然＊@＊做为改变世界的程序员提升B格 哈哈😄</li>
+</ul>
+<p>希望自己能坚持下去做点自己真正想做的事情吧。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+  
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 wangsg
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
