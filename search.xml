@@ -6,7 +6,106 @@
     <entry>
       <title><![CDATA[自定义View之Path基础]]></title>
       <url>http://yoursite.com/2016/07/01/%E8%87%AA%E5%AE%9A%E4%B9%89View%E4%B9%8BPath%E5%9F%BA%E7%A1%80/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th>作用</th>
+<th>相关方法</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>移动起点</td>
+<td>moveTo</td>
+<td>移动下一次操作的起点位置</td>
+</tr>
+<tr>
+<td>设置终点</td>
+<td>setLastPoint</td>
+<td>重置当前path中最后一个点位置，如果在绘制之前调用，效果和moveTo相同</td>
+</tr>
+<tr>
+<td>连接直线</td>
+<td>lineTo</td>
+<td>添加上一个点到当前点之间的直线到Path</td>
+</tr>
+<tr>
+<td>闭合路径</td>
+<td>close</td>
+<td>连接第一个点连接到最后一个点，形成一个闭合区域</td>
+</tr>
+<tr>
+<td>添加内容</td>
+<td>addRect, addRoundRect,  addOval, addCircle,     addPath, addArc, arcTo</td>
+<td>添加(矩形， 圆角矩形， 椭圆， 圆， 路径， 圆弧) 到当前Path (注意addArc和arcTo的区别)</td>
+</tr>
+<tr>
+<td>是否为空</td>
+<td>isEmpty</td>
+<td>判断Path是否为空</td>
+</tr>
+<tr>
+<td>是否为矩形</td>
+<td>isRect</td>
+<td>判断path是否是一个矩形</td>
+</tr>
+<tr>
+<td>替换路径</td>
+<td>set</td>
+<td>用新的路径替换到当前路径所有内容</td>
+</tr>
+<tr>
+<td>偏移路径</td>
+<td>offset</td>
+<td>对当前路径之前的操作进行偏移(不会影响之后的操作)</td>
+</tr>
+<tr>
+<td>贝塞尔曲线</td>
+<td>quadTo, cubicTo</td>
+<td>分别为二次和三次贝塞尔曲线的方法</td>
+</tr>
+<tr>
+<td>rXxx方法</td>
+<td>rMoveTo, rLineTo, rQuadTo, rCubicTo</td>
+<td><strong>不带r的方法是基于原点的坐标系(偏移量)， rXxx方法是基于当前点坐标系(偏移量)</strong></td>
+</tr>
+<tr>
+<td>填充模式</td>
+<td>setFillType, getFillType, isInverseFillType, toggleInverseFillType</td>
+<td>设置,获取,判断和切换填充模式</td>
+</tr>
+<tr>
+<td>提示方法</td>
+<td>incReserve</td>
+<td>提示Path还有多少个点等待加入<strong>(这个方法貌似会让Path优化存储结构)</strong></td>
+</tr>
+<tr>
+<td>布尔操作(API19)</td>
+<td>op</td>
+<td>对两个Path进行布尔运算(即取交集、并集等操作)</td>
+</tr>
+<tr>
+<td>计算边界</td>
+<td>computeBounds</td>
+<td>计算Path的边界</td>
+</tr>
+<tr>
+<td>重置路径</td>
+<td>reset, rewind</td>
+<td>清除Path中的内容<br> <strong>reset不保留内部数据结构，但会保留FillType.</strong><br> <strong>rewind会保留内部的数据结构，但不保留FillType</strong></td>
+</tr>
+<tr>
+<td>矩阵操作</td>
+<td>transform</td>
+<td>矩阵变换</td>
+</tr>
+</tbody>
+</table>
+<p>简单例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">canvas.translate(mWidth / <span class="number">2</span>, mHeight / <span class="number">2</span>);  <span class="comment">// 移动坐标系到屏幕中心(宽高数据在onSizeChanged中获取)</span></span><br><span class="line"></span><br><span class="line">Path path = <span class="keyword">new</span> Path();                     <span class="comment">// 创建Path</span></span><br><span class="line"></span><br><span class="line">path.lineTo(<span class="number">200</span>, <span class="number">200</span>);                      <span class="comment">// lineTo</span></span><br><span class="line">path.lineTo(<span class="number">200</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">canvas.drawPath(path, mPaint);              <span class="comment">// 绘制Path</span></span><br></pre></td></tr></table></figure>
+<p>本文完全转载：<br><a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B5%5DPath_Basic.md" target="_blank" rel="external">Path之基本操作</a></p>
+]]></content>
     </entry>
     
     <entry>
