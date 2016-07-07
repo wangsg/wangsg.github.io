@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title><![CDATA[Mac下编译Android源码]]></title>
+      <url>http://yoursite.com/2016/07/07/Mac%E4%B8%8B%E7%BC%96%E8%AF%91Android%E6%BA%90%E7%A0%81/</url>
+      <content type="html"><![CDATA[<p>mac版本10.11.5<br>编译环境配置：<a href="https://source.android.com/source/initializing.html#setting-up-a-mac-os-x-build-environment" target="_blank" rel="external">Setting up a Mac OS build environment</a>自备梯子<br>1.创建大小写敏感的磁盘分区<br>2.安装JDK等，搞开发的这些都略过…<br>3.下载Android源码<br>我是使用清华镜像<a href="https://mirror.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="external">清华大学 TUNA 镜像源</a>,并且我是使用镜像站提供的方式下载</p>
+<blockquote>
+<p>由于首次同步需要下载 24GB 数据，过程中任何网络故障都可能造成同步失败，我们强烈建议您使用初始化包进行初始化。<br>下载 <a href="https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly/aosp-latest.tar" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly/aosp-latest.tar</a><br>下载完成后记得根据 checksum.txt 的内容校验一下。<br>由于所有代码都是从隐藏的 .repo 目录中 checkout 出来的，所以我们只保留了 .repo 目录，下载后解压 再 repo sync 一遍即可得到完整的目录。</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/aosp-monthly/aosp-latest.tar # 下载初始化包</span><br><span class="line">tar xf aosp-latest.tar</span><br><span class="line">cd AOSP   # 解压得到的 AOSP 工程目录</span><br><span class="line">这时 ls 的话什么也看不到，因为只有一个隐藏的 .repo 目录</span><br><span class="line">repo sync # 正常同步一遍即可得到完整目录</span><br><span class="line">或 repo sync -l 仅checkout代码</span><br></pre></td></tr></table></figure>
+<p>此后，每次只需运行 repo sync 即可保持同步<br>4.开始编译</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source build/envsetup.sh</span><br></pre></td></tr></table></figure>
+<p>5.根据设备选择target<br>可以参考这里<a href="https://source.android.com/source/running.html#selecting-device-build" target="_blank" rel="external">Selecting a device build</a>同样提子</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$lunch</span><br><span class="line">You're building on Darwin</span><br><span class="line">Lunch menu... pick a combo:</span><br><span class="line">     1. aosp_arm-eng</span><br><span class="line">     2. aosp_arm64-eng</span><br><span class="line">     3. aosp_mips-eng</span><br><span class="line">     4. aosp_mips64-eng</span><br><span class="line">     5. aosp_x86-eng</span><br><span class="line">     6. aosp_x86_64-eng</span><br><span class="line">     7. aosp_deb-userdebug</span><br><span class="line">     8. aosp_flo-userdebug</span><br><span class="line">     9. full_fugu-userdebug</span><br><span class="line">     10. aosp_fugu-userdebug</span><br><span class="line">     11. mini_emulator_arm64-userdebug</span><br><span class="line">     12. m_e_arm-userdebug</span><br><span class="line">     13. mini_emulator_mips-userdebug</span><br><span class="line">     14. mini_emulator_x86-userdebug</span><br><span class="line">     15. mini_emulator_x86_64-userdebug</span><br><span class="line">     16. aosp_flounder-userdebug</span><br><span class="line">     17. aosp_angler-userdebug</span><br><span class="line">     18. aosp_bullhead-userdebug</span><br><span class="line">     19. aosp_hammerhead-userdebug</span><br><span class="line">     20. aosp_hammerhead_fp-userdebug</span><br><span class="line">     21. aosp_shamu-userdebug</span><br></pre></td></tr></table></figure>
+<p>6.编译</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make -j4</span><br><span class="line">-jN，N这个数字可以跟你的CPU实际情况而定。</span><br></pre></td></tr></table></figure>
+<p>这将是一个漫长的等待！</p>
+<p>让后编译后镜像可以刷机（我没测试），也可以选择模拟器（测试通过），我的做法较懒直接替换已有模拟器的.img 文件</p>
+<p>至此，源码编译完成，是不是修改开发一个app还用全部编译？我天！那需要多长时间好麻烦，别着急google都已经做好了，下篇文章细细测试讲解。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android进程间通信]]></title>
+      <url>http://yoursite.com/2016/07/07/Android%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android设计模式之Proxy模式]]></title>
+      <url>http://yoursite.com/2016/07/07/Android%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BProxy%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android性能优化之内存优化]]></title>
+      <url>http://yoursite.com/2016/07/07/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[WebView的那些坑]]></title>
       <url>http://yoursite.com/2016/07/07/WebView%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/</url>
       <content type="html"><![CDATA[<p>1.WebViewClient.onPageFinished()。<br>无法确定当WebView调用这个方法的时候，网页内容是否真的加载完毕了。当前正在加载的网页产生跳转的时候这个方法可能会被多次调用，<a href="http://stackoverflow.com/questions/3149216/how-to-listen-for-a-webview-finishing-loading-a-url-in-android" target="_blank" rel="external">How to listen for a Webview finishing loading a URL in Android?</a>.WebChromeClient.onProgressChanged()比WebViewClient.onPageFinished()都要靠谱一些。<br>2.WebView的内存泄露:加载的页面比较大的时候.<br>解决方案：当你要用webview的时候，单独开一个进程，并且当这个进程结束时，手动调System.exit(0)。<br>3.耗电：目前发现原因是后台释放不掉js。<br>解决方案：在onstop和onresume里分别setJavaScriptEnabled()设置成false和true。</p>
