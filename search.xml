@@ -15,7 +15,14 @@
     <entry>
       <title><![CDATA[Android性能优化之布局优化]]></title>
       <url>http://yoursite.com/2016/07/06/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B8%83%E5%B1%80%E4%BC%98%E5%8C%96/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<p>布局优化就是减少布局的层级，曾经有遇到层级过多导致<br>下边是一个例子<br><img src="http://images.cnitblog.com/blog/325852/201305/14193129-fb604b1ac1cf4041a8602c4c0b80ea50.png" alt=""><br>然后加到20+层<br>看下边<br><img src="http://images.cnitblog.com/blog/325852/201305/14193240-718f12b48e284f29bf4132c703e2def9.png" alt=""><br>手机是2.3.5系统<br>so，可以看出布局优化对性能优化还是很有必要的。<br>可以从以下几个方面考虑：</p>
+<ul>
+<li>删除布局中无用布局</li>
+<li><include>标签</include></li>
+<li><merge>标签</merge></li>
+<li>ViewStub 宽高为0，本身不参与任何布局和绘制，按需加载。如：网络异常界面</li>
+</ul>
+]]></content>
     </entry>
     
     <entry>
