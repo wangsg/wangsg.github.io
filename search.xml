@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[Android关于so文件你需要了解的]]></title>
+      <url>http://yoursite.com/2016/07/07/Android%E5%85%B3%E4%BA%8Eso%E6%96%87%E4%BB%B6%E4%BD%A0%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac下编译Android源码]]></title>
       <url>http://yoursite.com/2016/07/07/Mac%E4%B8%8B%E7%BC%96%E8%AF%91Android%E6%BA%90%E7%A0%81/</url>
       <content type="html"><![CDATA[<p>mac版本10.11.5<br>编译环境配置：<a href="https://source.android.com/source/initializing.html#setting-up-a-mac-os-x-build-environment" target="_blank" rel="external">Setting up a Mac OS build environment</a>自备梯子<br>1.创建大小写敏感的磁盘分区<br>2.安装JDK等，搞开发的这些都略过…<br>3.下载Android源码<br>我是使用清华镜像<a href="https://mirror.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="external">清华大学 TUNA 镜像源</a>,并且我是使用镜像站提供的方式下载</p>
