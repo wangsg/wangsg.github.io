@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title><![CDATA[WebView的那些坑]]></title>
+      <url>http://yoursite.com/2016/07/07/WebView%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/</url>
+      <content type="html"><![CDATA[<ul>
+<li>WebViewClient.onPageFinished()。<br>无法确定当WebView调用这个方法的时候，网页内容是否真的加载完毕了。当前正在加载的网页产生跳转的时候这个方法可能会被多次调用，<a href="http://stackoverflow.com/questions/3149216/how-to-listen-for-a-webview-finishing-loading-a-url-in-android" target="_blank" rel="external">How to listen for a Webview finishing loading a URL in Android?</a>.WebChromeClient.onProgressChanged()比WebViewClient.onPageFinished()都要靠谱一些。</li>
+<li>WebView的内存泄露:加载的页面比较大的时候.<br>解决方案：当你要用webview的时候，单独开一个进程，并且当这个进程结束时，手动调System.exit(0)。</li>
+<li>耗电：目前发现原因是后台释放不掉js。<br>解决方案：在onstop和onresume里分别setJavaScriptEnabled()设置成false和true。</li>
+</ul>
+<hr>
+<p>其它bug 可能我这用户级别不够以及覆盖版本不足 没有遇到。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android性能优化之布局优化]]></title>
       <url>http://yoursite.com/2016/07/06/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%B8%83%E5%B1%80%E4%BC%98%E5%8C%96/</url>
       <content type="html"></content>
