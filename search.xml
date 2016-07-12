@@ -4,6 +4,16 @@
   
     
     <entry>
+      <title><![CDATA[加速gradle构建]]></title>
+      <url>http://yoursite.com/2016/07/12/%E5%8A%A0%E9%80%9Fgradle%E6%9E%84%E5%BB%BA/</url>
+      <content type="html"><![CDATA[<p>最近发现gradle构建项目比较慢，在Gradle Console中还有提示让更改org.gradle.jvmargs<br>之类的。<br>其实在每个工程中，已经存在一个gradle.properties的文件类似这种<br><img src="imgs/gradle.png" alt=""></p>
+<p>看了网上比较多的加速构建决定在根源上更改配置mac上gradle位置／Usrs/xxx/.gradle/ 下新建gradle.properties文件并修改如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">org.gradle.daemon=<span class="keyword">true</span></span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=<span class="number">512</span>m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-<span class="number">8</span></span><br><span class="line">org.gradle.parallel=<span class="keyword">true</span></span><br><span class="line">org.gradle.configureondemand=<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<p>windows下位置C:Users<username>.gradle<br>目前速度已经能够接受没有测试其它网上流传配置<br>当然还有其它可以自行google关于android studio 加速gradle的文章</username></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[相册getContentResolver空指针]]></title>
       <url>http://yoursite.com/2016/07/12/%E7%9B%B8%E5%86%8CgetContentResolver%E7%A9%BA%E6%8C%87%E9%92%88/</url>
       <content type="html"><![CDATA[<p>今天写了个demo给后端测试上传图片，发现相册getContentResolver().query结果为空指针<br>，遂记录。<br>原代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = data.getData();</span><br><span class="line">String[] proj = &#123;MediaStore.Images.Media.DATA&#125;;</span><br><span class="line"><span class="comment">//Cursor cursor = managedQuery(uri, proj, null, null, null);</span></span><br><span class="line">Cursor cursor = getContentResolver().query(uri, proj, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">cursor.moveToFirst();</span><br><span class="line">	<span class="keyword">int</span> columnIndex = cursor.getColumnIndex(filePathColumn[<span class="number">0</span>]);</span><br><span class="line">	String picturePath = cursor.getString(columnIndex);</span><br><span class="line">	cursor.close();</span><br><span class="line">	mImgPath = picturePath;</span><br></pre></td></tr></table></figure></p>
