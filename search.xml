@@ -24,7 +24,8 @@
     <entry>
       <title><![CDATA[centOS搭建gitlab]]></title>
       <url>http://yoursite.com/2016/07/08/centOS%E6%90%AD%E5%BB%BAgitlab/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<p>此前在服务器部署完成，前一段部署其它服务时把服务关闭了，然后重新打开时发生了一些小问题，但是时间长了几天我又忘记怎么解决了，还得去google，所以把安装过程记录下来，以便后续查找问题。<br>链接如下<br><a href="http://www.01happy.com/centos-6-5-install-gitlab/" target="_blank" rel="external">centos 6.5安装GitLab全过程和问题记录</a></p>
+]]></content>
     </entry>
     
     <entry>
