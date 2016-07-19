@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title><![CDATA[ADB常用命令]]></title>
+      <url>http://yoursite.com/2016/07/19/ADB%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<p>记录一些常用的ADB命令</p>
+<ul>
+<li><p>获取连接的设备</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启机器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看log：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终止adb服务进程：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb kill-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启adb服务进程：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb start-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装APK：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install &lt;apkfile&gt; <span class="comment">//比如：adb install baidu.apk</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保留数据和缓存文件，重新安装apk：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -r &lt;apkfile&gt; <span class="comment">//比如：adb install -r baidu.apk</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载APK：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall &lt;<span class="keyword">package</span>&gt; <span class="comment">//比如：adb uninstall com.baidu.search</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载app但保留数据和缓存文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall -k &lt;<span class="keyword">package</span>&gt; <span class="comment">//比如：adb uninstall -k com.baidu.search</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看设备cpu和内存占用情况：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell top</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>跑monkey：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -v -p your.<span class="keyword">package</span>.name <span class="number">500</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[加速gradle构建]]></title>
       <url>http://yoursite.com/2016/07/12/%E5%8A%A0%E9%80%9Fgradle%E6%9E%84%E5%BB%BA/</url>
       <content type="html"><![CDATA[<p>最近发现gradle构建项目比较慢，在Gradle Console中还有提示让更改org.gradle.jvmargs<br>之类的。<br>其实在每个工程中，已经存在一个gradle.properties的文件类似这种<br><img src="imgs/gradle.png" alt=""></p>
